@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Payment Card with Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="w-full max-w-md">
+      <div class="mb-8 w-96 h-56">
+        <div id="card" class="card relative w-full h-full cursor-pointer">
+          <div
+            class="card-face card-front absolute w-full h-full rounded-xl p-6 flex flex-col justify-between bg-gradient-to-br from-purple-600 to-pink-500 text-white"
+          >
+            <div class="flex justify-between items-center">
+              <span class="text-lg font-bold">Credit Card</span>
+              <span class="text-2xl">💳</span>
+            </div>
+            <div id="cardNumber" class="text-2xl tracking-wider">
+              •••• •••• •••• ••••
+            </div>
+            <div class="flex justify-between items-end">
+              <div>
+                <div class="text-xs">Card Holder</div>
+                <div id="cardName" class="font-semibold">YOUR NAME</div>
+              </div>
+              <div>
+                <div class="text-xs">Expires</div>
+                <div id="cardExpiry" class="font-semibold">MM/YY</div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="card-face card-back absolute w-full h-full rounded-xl p-6 flex flex-col justify-between bg-gradient-to-br from-gray-700 to-gray-900 text-white"
+          >
+            <div class="h-12 bg-black mt-4"></div>
+            <div class="flex justify-end items-center mt-4">
+              <div
+                id="cardCvv"
+                class="w-3/4 h-8 bg-white flex items-center justify-end px-2 text-black font-bold"
+              >
+                •••
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form
+        id="paymentForm"
+        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+      >
+        <div class="mb-4">
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="inputCardNumber"
+          >
+            Card Number
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="inputCardNumber"
+            type="text"
+            placeholder="•••• •••• •••• ••••"
+            maxlength="19"
+          />
+          <p id="cardNumberError" class="text-red-500 text-xs italic mt-1"></p>
+        </div>
+        <div class="mb-4">
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            for="inputCardName"
+          >
+            Cardholder Name
+          </label>
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="inputCardName"
+            type="text"
+            placeholder="YOUR NAME"
+          />
+          <p id="cardNameError" class="text-red-500 text-xs italic mt-1"></p>
+        </div>
+        <div class="flex mb-4">
+          <div class="w-1/2 mr-2">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="inputCardExpiry"
+            >
+              Expiry Date
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="inputCardExpiry"
+              type="text"
+              placeholder="MM/YY"
+              maxlength="5"
+            />
+            <p
+              id="cardExpiryError"
+              class="text-red-500 text-xs italic mt-1"
+            ></p>
+          </div>
+          <div class="w-1/2 ml-2">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="inputCardCvv"
+            >
+              CVV
+            </label>
+            <input
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="inputCardCvv"
+              type="text"
+              placeholder="•••"
+              maxlength="3"
+            />
+            <p id="cardCvvError" class="text-red-500 text-xs italic mt-1"></p>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
+          >
+            Submit Payment
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
